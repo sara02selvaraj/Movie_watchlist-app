@@ -105,3 +105,13 @@ section {
 #watchlist-btn .fa{
     margin-right:5px;
 }
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #DFDDDD;
+}
+.empty.movie h2{
+    font-size : 100px;
+    margin-bottom:0;
+}
