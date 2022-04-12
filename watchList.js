@@ -17,16 +17,16 @@ function getMovieList() {
             <div class="movie-details">
                 <p>${movie.Runtime}</p>
                 <p>${movie.Genre}</p>
-                <p><button onclick="removeMovie('${movie.Title}')" id="remove-btn"><i class="fa fa-minus-circle" aria-hidden="true"></i>Remove</button></p>
+                <p><button class="action-btn" onclick="removeMovie('${movie.Title}')" id="remove-btn"><i class="fa fa-minus-circle" aria-hidden="true"></i>Remove</button></p>
             </div>
-            <p>${movie.Plot}</p>
+            <p class="plot">${movie.Plot}</p>
         </div>
     </div>`
     })
    }else {
        html = `<div class="empty">
                 <h3>your watchlist is looking a little empty...</h3>
-                <p><a href="index.html"><i class="fa fa-plus-circle" aria-hidden="true"></i>Lets add some movies!</a></p>
+                <p class="dark-text"><a href="index.html"><i class="fa fa-plus-circle" aria-hidden="true"></i>Lets add some movies!</a></p>
             </div>`
    }
 

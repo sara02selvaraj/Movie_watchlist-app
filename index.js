@@ -22,9 +22,9 @@ formEl.addEventListener('submit', async function(e) {
         <div class="movie-details">
             <p>${data.Runtime}</p>
             <p>${data.Genre}</p>
-            <p><button id="watchlist-btn"><i class="fa fa-plus-circle" aria-hidden="true"></i>WatchList</button></p>
+            <p><button class="action-btn" id="watchlist-btn"><i class="fa fa-plus-circle" aria-hidden="true"></i>WatchList</button></p>
         </div>
-        <p>${data.Plot}</p>
+        <p class="plot">${data.Plot}</p>
     </div>
 </div>`
     const watchlistBtn = document.getElementById('watchlist-btn')
