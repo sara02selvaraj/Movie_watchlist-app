@@ -1,5 +1,5 @@
 const movieContent = document.getElementById('movie-content')
-let moviesList = []
+let moviesList;
 getMovieList()
 
 function getMovieList() {
