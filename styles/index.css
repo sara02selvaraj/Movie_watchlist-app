@@ -1,13 +1,32 @@
-*{
-    box-sizing: border-box;
+:root {
+    --ff-primary: 'Inter', sans-serif;
+    --fw-reg: 500;
+    --fw-bold: 700;
+    --fw-bolder: 800;
+    --clr-primary: #fff;
+    --clr-accent: orangered;
+    --clr-light: #6B7280;
+    --clr-bg: #121212;
+
+    --fs-h1: 2rem;
+    --fs-h2: 1.125rem;
+    --fs-body: 0.875rem;
+    --fs-small: 0.75rem;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 500;
-    background-color: #121212;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-reg);
+    background-color: var(--clr-bg);
 }
 
 main {
@@ -15,73 +34,73 @@ main {
     width:90%;
     margin: 0 auto;
     margin-top:5em;
-    background-color: #fff;
+    background-color: var(--clr-primary);
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    background: url('../image/image.jpg') scroll center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        "title link";
+    padding: 4.5em 0.56em;
+    color:var(--clr-primary);
+    background-image: url('https://s3-alpha-sig.figma.com/img/dafe/fd94/40637dd9b0240098474b6d8dd9487d8c?Expires=1652054400&Signature=WK-WD0vWrR5zzAoulaVYV8G4fNHwdeZ2iiuX1HA1cIuNuzngf6X1F5mo2h3yL1C941fLbtfcceGco21WICcq1veCjp37LdkQUiEGiTwtkoJM~N3q-WCSzjx2zvMxhPJEgOUP0TEr84mJv-tKEvJJPMuPxRRFLlhelUJKJFFFl8qR4Ruw68TJmJapQSX8QHnzD110YZcP55Q21Kx1fGPcif5~7GJSUFcl63NXH-wjg-4ZPumrgl8TgA5JPnDRmUvMwStz-xIyaWcl3cdbsWL6vBKBbYcTVJX9d8rF9qu0UN5IGEBW3lnXEBh8gv5KRo1c4Bwng3MsFENwS9GegLOkQg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
     background-color: rgba(0,0,0,0.7);
     background-blend-mode: multiply;
     background-size: cover;
-    padding: 4.5em 0.56em;
-    color:#fff;
-    position:relative;
-    z-index: 1;
-}
-header h1{
-    font-size: 2rem;
-    font-weight: 800;
-    margin:0;
+    background-position: top 20% right 0px;
 }
 
+header h1{
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-bolder);
+    grid-area: title;
+    margin:0;
+}
+nav {
+    grid-area: link;
+    justify-self: end;
+}
 nav ul {
     list-style: none;
-    padding:0;
-}
-nav li {
-    display: block;  
 }
 nav a{
     text-decoration: none;
-    font-weight: 700;
-    color:#fff;
+    font-weight: var(--fw-bold);
+    color:var(--clr-primary);
 }
 nav a:hover, nav a:focus {
-    color: orangered;
+    color: var(--clr-accent);
 }
 
 form {
-    position: absolute; 
-    margin-top: -17px;
-    left:40%;
-    right:40%;
-    z-index: 2;
     display: flex;
     justify-content: center;
 }
 form > input {
-    width:400px;
-    font-size: 0.875rem;
-    color: #6B7280;
+    font-size: var(--fs-body);
+    background: var(--clr-primary);
+    color: var(--clr-light);
     padding: 0.5em 1.42em;
-    border: 2px solid #D1D5DB;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    background: #FFFFFF;
+    overflow: hidden;
+    margin-top: -20px;
+    border: 1px solid #D1D5DB;
+    outline: none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);   
+}
+
+form > input[type = text] {
     border-radius: 6px 0 0 6px;
 }
-form > button {
-    font-size: 0.875rem;
-    color: #374151;
-    border: 1px solid #D1D5DB;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+form > input[type = submit] {
     border-radius: 0px 6px 6px 0px;
 }
-form > button:hover {
-    background-color:  #b3bdd1;
+
+form > input[type = submit]:hover {
+    color: var(--clr-primary);
+    background-color:  var(--clr-accent);
 }
+
 section {
     margin-top:2.85em;
     min-height:600px;
@@ -109,7 +128,7 @@ section {
     display: block;
  }
 .movie-info h2 {
-    font-size: 1.125rem;
+    font-size: var(--fs-h2);
     margin: 0;
 }
 .plot {
@@ -120,12 +139,12 @@ section {
 .movie-details{
     display: flex;
     justify-content: space-between;
-    font-size: 0.75rem;
+    font-size: var(--fs-small);
     font-weight: 400;
     margin:0;
 }
 .movie-info .rating {
-    font-size: 0.75rem;
+    font-size: var(--fs-small);
 }
 .movie-info #star {
    color:#FEC654 ;
@@ -133,31 +152,31 @@ section {
 .action-btn {
     border: none;
     outline: none;
-    background-color: #fff;
+    background-color: var(--clr-primary);
     cursor: pointer;
 }
 .action-btn:hover, .action-btn:focus{
-    color: orangered;
+    color: var(--clr-accent);
 }
 .action-btn .fa{
     margin-right: 0.35em;
 }
 .empty {
     text-align: center;
-    font-size: 1.125rem;
+    font-size: var(--fs-h2);
     color: #DFDDDD;
 }
 .empty.movie h2{
     font-size : 6.25rem;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 .dark-text a{
     text-decoration: none;
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     color: #363636;
 }
 .dark-text a:hover, .dark-text a:focus{
-    color: orangered;
+    color: var(--clr-accent);
 }
 
 @media (min-width:600px) {
