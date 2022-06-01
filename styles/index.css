@@ -6,7 +6,7 @@
     --clr-primary: #fff;
     --clr-accent: orangered;
     --clr-light: #6B7280;
-    --clr-bg: #121212;
+    --clr-bg: #e6e6e6;
 
     --fs-h1: 2rem;
     --fs-h2: 1.125rem;
@@ -30,7 +30,7 @@ body {
 }
 
 main {
-    max-width: 550px;
+    max-width: 700px;
     width:90%;
     margin: 0 auto;
     margin-top:5em;
@@ -39,32 +39,33 @@ main {
 
 header {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: 
-        "title link";
+    grid-template-columns: 1fr;
     padding: 4.5em 0.56em;
-    color:var(--clr-primary);
-    background-image: url('https://s3-alpha-sig.figma.com/img/dafe/fd94/40637dd9b0240098474b6d8dd9487d8c?Expires=1652054400&Signature=WK-WD0vWrR5zzAoulaVYV8G4fNHwdeZ2iiuX1HA1cIuNuzngf6X1F5mo2h3yL1C941fLbtfcceGco21WICcq1veCjp37LdkQUiEGiTwtkoJM~N3q-WCSzjx2zvMxhPJEgOUP0TEr84mJv-tKEvJJPMuPxRRFLlhelUJKJFFFl8qR4Ruw68TJmJapQSX8QHnzD110YZcP55Q21Kx1fGPcif5~7GJSUFcl63NXH-wjg-4ZPumrgl8TgA5JPnDRmUvMwStz-xIyaWcl3cdbsWL6vBKBbYcTVJX9d8rF9qu0UN5IGEBW3lnXEBh8gv5KRo1c4Bwng3MsFENwS9GegLOkQg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+    color: var(--clr-primary);
     background-color: rgba(0,0,0,0.7);
+    background-image: url('../image/image.jpg');
     background-blend-mode: multiply;
     background-size: cover;
-    background-position: top 20% right 0px;
+    background-position: center;
 }
 
 header h1{
     font-size: var(--fs-h1);
     font-weight: var(--fw-bolder);
-    grid-area: title;
+    justify-self: center;
     margin:0;
 }
 nav {
-    grid-area: link;
-    justify-self: end;
+    justify-self: center;
+    margin-top:2em;
 }
 nav ul {
     list-style: none;
+    padding-left: 0;
+    padding:0.5em;
+    border-bottom: 0.5px solid var(--clr-light);
 }
-nav a{
+nav ul li a{
     text-decoration: none;
     font-weight: var(--fw-bold);
     color:var(--clr-primary);
@@ -88,6 +89,7 @@ form > input {
     font-size: var(--fs-body);
     background: var(--clr-primary);
     color: var(--clr-light);
+    overflow: hidden;
     padding: 0.5em 1.42em;
     border: 1px solid #D1D5DB;
     outline: none;   
@@ -100,6 +102,7 @@ form > input[type = text] {
     
 }
 form > input[type = submit] {
+    padding:0;
     border-top-right-radius: inherit;
     border-bottom-right-radius: inherit;
 }
@@ -115,6 +118,8 @@ section {
 }
 .movie-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     border-bottom: 1.5px solid #E5E7EB;
     margin-top:1.42em;
@@ -125,15 +130,16 @@ section {
     margin:0;
 }
 .poster {
-    width:20%;
-    margin-right:0.71em;
-}
-.movie-info {
-    width:70%;
+    width:150px;
+    margin-bottom: 1em;
 }
 .img-movie {
     max-width:100%; 
     display: block;
+ }
+ .movie-info {
+     max-width:400px;
+     padding:0.5em;
  }
 .movie-info h2 {
     font-size: var(--fs-h2);
@@ -141,7 +147,7 @@ section {
 }
 .plot {
     font-weight: 400;
-    color: #6B7280;
+    color: var(--clr-light);
     margin-top:0;
 }
 .movie-details{
@@ -189,16 +195,26 @@ section {
 
 @media (min-width:600px) {
     header {
+        grid-template-columns: repeat(2, 1fr);
         padding: 5.5em 2.5em;
+    }
+    header h1{
+        align-self: center;
+    }
+    nav {
+        justify-self: end;
+        margin: 0;
     }
     section {
         padding: 0.71em 2.14em;
     }
     .movie-container {
+        flex-direction: row;
         margin-top:0;
     }
     .poster {
         width:25%;
+        margin-right:3px;
     }
     .movie-info {
         width: 65%;
