@@ -15,14 +15,14 @@ movieEl.addEventListener('focus', function(){
 
 formEl.addEventListener('submit', async function(e) {
     e.preventDefault();
-    let response = await fetch(`http://www.omdbapi.com/?s=${movieEl.value}&i=tt3896198&apikey=526a9387`)
+    let response = await fetch(`https://www.omdbapi.com/?s=${movieEl.value}&i=tt3896198&apikey=526a9387`)
     let data = await response.json();
     let searchList = data.Search.map((item) => {
          return item.imdbID
     })
     let result = [];
      searchList.map((id) => {
-        fetch(`http://www.omdbapi.com/?i=${id}&apikey=526a9387`)
+        fetch(`https://www.omdbapi.com/?i=${id}&apikey=526a9387`)
         .then(response => response.json())
         .then(data => {
            result.push(data)
